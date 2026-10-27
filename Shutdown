@@ -1,1 +1,4 @@
+local button = script.Parent
+button.MouseButton1Click:Connect(function()
 for i, players in pairs(game.Players:GetChildren()) do players:Kick("shutdown") end
+end)
