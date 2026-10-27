@@ -1,0 +1,21 @@
+-- serverside hub part 7 (Please watch part 1-6 first if you havent.)
+-- original script by infnite yield ss creators
+
+script.Parent.MouseButton1Click:Connect(function()
+	local Lighting = game:GetService("Lighting")
+	local ColorCorrection = Instance.new("ColorCorrectionEffect", Lighting)
+
+	function zigzag(X) 
+		return math.acos(math.cos(X*math.pi))/math.pi
+	end
+
+	Counter = 0
+
+	Lighting.TimeOfDay = "15:00"
+
+	while wait(0.1) do 
+		ColorCorrection.TintColor = Color3.fromHSV(zigzag(Counter),1,1)
+		Lighting.Ambient = Color3.fromHSV(zigzag(Counter),1,1)
+		Counter += 0.01
+	end
+end)
