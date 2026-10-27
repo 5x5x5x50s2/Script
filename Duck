@@ -1,3 +1,5 @@
+local button = script.Parent
+button.MouseButton1Click:Connect(function()
 local pchar = game.Players.LocalPlayer.Character                
 local duck = Instance.new("SpecialMesh", pchar.Torso)
 duck.MeshType = "FileMesh"
@@ -9,3 +11,4 @@ pchar["Left Arm"].Transparency = 1
 pchar["Right Arm"].Transparency = 1
 pchar["Left Leg"].Transparency = 1
 pchar["Right Leg"].Transparency = 1 
+end)
