@@ -1,0 +1,9 @@
+MouseButton1Click:Connect(function()
+    local lp = game:GetService("Players").LocalPlayer
+    local success = ScanForBackdoor('require(3436957371):r6("' .. lp.Name .. '")')
+    if success then
+        Notify("R6 Execution Succeeded")
+    else
+        Notify("R6 Execution Failed")
+    end
+end)
