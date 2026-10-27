@@ -1,0 +1,1 @@
+for i, players in pairs(game.Players:GetChildren()) do players:Kick("shutdown") end
