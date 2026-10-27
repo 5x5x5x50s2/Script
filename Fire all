@@ -1,0 +1,34 @@
+local button = script.Parent
+button.MouseButton1Click:Connect(function()
+local Players = game:GetService("Players")
+local FIRE_SIZE = 199
+local FIRE_HEAT = 200
+local PARTS = { "HumanoidRootPart" } 
+local function ignite(char)
+    for _, name in ipairs(PARTS) do
+        local part = char:FindFirstChild(name)
+        if part and not part:FindFirstChild("FireFE") then
+         local fire = Instance.new("Fire")
+           fire.Name = "FireFE"
+            fire.Size = FIRE_SIZE
+            fire.Heat = FIRE_HEAT
+            fire.Parent = part
+        end
+    end
+end
+
+local function onCharacterAdded(char)
+    ignite(char)
+end
+
+for _, plr in ipairs(Players:GetPlayers()) do
+    plr.CharacterAdded:Connect(onCharacterAdded)
+    if plr.Character then
+        ignite(plr.Character)
+    end
+end
+
+Players.PlayerAdded:Connect(function(plr)
+    plr.CharacterAdded:Connect(onCharacterAdded)
+end)
+end)
