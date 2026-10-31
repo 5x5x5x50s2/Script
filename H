@@ -24,8 +24,9 @@ local ImageLabel = Instance.new("ImageLabel")
 
 --Properties:
 
-ScreenGui.Parent = game.CoreGui
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
 
 ScrollingFrame.Parent = ScreenGui
 ScrollingFrame.Active = true
